@@ -8,7 +8,7 @@
 using namespace std;
 
 
-TEST(printData, printData.print)
+TEST(printData, printData_print)
 {
     printData pd;
 

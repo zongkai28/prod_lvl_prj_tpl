@@ -37,11 +37,11 @@ builduttest()
         mkdir -p out
     fi
 
-    echo "enter 'out' folder"
-    cd out
+    echo "enter 'build' folder"
+    cd build
 
     echo "generate makefile with flags and target toolchain"
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/opt/arm_toolchain_allwinner_a40i/x64-arm-Linux.cmake -DUT_TEST=ON
+    cmake .. -DUT_TEST=ON
 
     echo "build (ie 'make')"
     cmake --build .

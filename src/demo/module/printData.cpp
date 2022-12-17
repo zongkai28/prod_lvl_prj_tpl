@@ -7,7 +7,7 @@ using namespace std;
 
 void printData::print(int i)
 {
-    cout << " integrate is:" << i << endl;
+    cout << "integrate is:" << i << endl;
 }
 
 void printData::print(double f)

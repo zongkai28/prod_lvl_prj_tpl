@@ -1,6 +1,9 @@
 # need at least 3.11 version to support FetchContent
 cmake_minimum_required( VERSION 3.11 )
 
+# warning free
+project(Project)
+
 # Print some standard CMake variables
 message(STATUS "CMake version: ${CMAKE_VERSION}")
 
@@ -27,23 +30,29 @@ message(STATUS "building from git log ${GIT_CMID_VERSION}")
 add_definitions(-DGIT_CMID_VERSION=\"${GIT_CMID_VERSION}\")
 
 
+# 输出目录
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/bin)
+
+
 # GoogleTest requires at least C++11
 set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+
+# external dependency
 include(FetchContent)
 FetchContent_Declare(
   googletest
   # Specify the commit you depend on and update it regularly.
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+  #URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+  URL  ${PROJECT_SOURCE_DIR}/tool/googletest/release-1.12.1.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP FALSE
 )
 FetchContent_MakeAvailable(googletest)
 
-# 输出目录
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/bin)
 
 add_subdirectory( src )
