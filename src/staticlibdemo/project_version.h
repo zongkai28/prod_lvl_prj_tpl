@@ -6,7 +6,7 @@
 
 
 #define PROJECT_VER_MINOR         PLAT_VER_MINOR
-#define PROJECT_VER_REVISION      (3)
+#define PROJECT_VER_REVISION      (0)
 
 
 #endif
