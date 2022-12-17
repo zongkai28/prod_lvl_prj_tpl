@@ -18,7 +18,7 @@ build()
     cd build
 
     echo "generate makefile with flags and target toolchain"
-    cmake ..
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=toolchain.camke.gcc
 
     echo "build (ie 'make')"
     cmake --build .
@@ -41,7 +41,7 @@ builduttest()
     cd build
 
     echo "generate makefile with flags and target toolchain"
-    cmake .. -DUT_TEST=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=toolchain.camke.gcc -DUT_TEST=ON
 
     echo "build (ie 'make')"
     cmake --build .

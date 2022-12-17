@@ -36,13 +36,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/out/bin)
 
 
-# GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 11)
-
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-
 # external dependency
 include(FetchContent)
 FetchContent_Declare(
